@@ -22,7 +22,7 @@ exports.login = async (req, res) => {
         return res.status(400).json({ message: "login ou mot de passe incorrect" })
     };
     let user = await User.findOne({ email: req.body.email });
-    let roles = await Role.find({_id: {$in:[user.roles]}});
+    let roles = await Role.find({_id: {$in:user.roles}});
     if (!user) {
         return res.status(401).json({ error: "login ou mot de passe incorrect" });
     }
@@ -68,6 +68,9 @@ exports.update = async (req, res) => {
     if (req.body.password) {
         user.password = bcrypt.hashSync(req.body.password, 10);
     }
+    if(req.file){
+        user.picture = './picture/' + req.file.filename;
+    }
     try {
         await user.save();
         return res.status(201).json(user);
@@ -77,25 +80,6 @@ exports.update = async (req, res) => {
 }
 
 exports.updateAdmin = async (req, res) => {
-    let user = await User.findOne({ _id: req.params.id });
-    if (!user) {
-        return res.status(404).json({ error: "L'utilisateur n'existe pas" });
-    }
-    if (req.body.email) {
-        user.email = req.body.email;
-    }
-    if (req.body.password) {
-        user.password = bcrypt.hashSync(req.body.password, 10);
-    }
-    try {
-        await user.save();
-        return res.status(201).json(user);
-    }catch(e){
-        return res.status(500).json({error: "Problème lors de la sécurisation du mot de passe"})
-    }
-}
-
-exports.update = async (req, res) => {
     let user = await User.findOne({ _id: req.params.id });
     if (!user) {
         return res.status(404).json({ error: "L'utilisateur n'existe pas" });

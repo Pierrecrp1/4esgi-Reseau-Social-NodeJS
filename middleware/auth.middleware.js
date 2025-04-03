@@ -14,7 +14,7 @@ module.exports = (role) => {
 
         try {
             req.token = jwt.verify(token, process.env.JWT_KEY);
-            if(role && !req.token.roles?.some(role => role.label === role)){
+            if(role && !req.token.roles?.some(r => r.label === role)){
                 return res.status(403).json({error: "Vous n'avez pas les droits pour réaliser cette action"});
             }
             next();
