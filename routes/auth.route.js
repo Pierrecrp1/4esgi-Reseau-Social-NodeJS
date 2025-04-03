@@ -8,11 +8,15 @@ router.post('/signin', async (req, res) => {
     res.status(201).json(user);
 });
 
-router.post('/login', (req, res) => {
-    res.status(200).json(jwt.sign({
-        firstName: 'John',
-        lastName: 'Elden Ring'
-    }, "iohnhfviuzrenbé415196zakfdsvi"));
+router.post('/login', async (req, res) => {
+    let user = await User.findOne({email: req.body.email});
+    if(!user){
+        return res.status(401).json({error: "login ou mot de passe incorrect"});
+    }
+    if(req.body.password !== user.password){
+        return res.status(401).json({error: "login ou mot de passe incorrect"});
+    }
+    return res.status(200).json(user);
 });
 
 router.get('/:id',async (req,res) => {
@@ -21,15 +25,20 @@ router.get('/:id',async (req,res) => {
 });
 
 router.get('/',async (req,res) => {
-
+    let userList = await User.find();
+    return res.status(200).json(userList);
 });
 
 router.put('/:id',async (req,res) => {
-    
+    let user = await User.findOne({_id: req.params.id});
+    Object.assign(user, req.body);
+    await user.save();
+    res.status(201).json(user);
 });
 
 router.delete('/:id',async (req,res) => {
-    
+    let result = await User.deleteOne({_id: req.params.id});
+    res.status(200).json({message: "Utilisateur supprimé"});
 });
 
 
