@@ -9,7 +9,8 @@ const user = new Schema({
             return /.+@.+/.test(value);
         }
     },
-    password: String
+    password: String,
+    roles: Array
 });
 
 const User = mongoose.model('User',user);
