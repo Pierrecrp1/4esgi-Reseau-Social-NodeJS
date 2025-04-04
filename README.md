@@ -3,9 +3,9 @@
  
 Groupe 6 :   
 Hugo   
-Arthur  
-Pierre 
-Thibault  
+Arthur    
+Pierre   
+Thibault   
 
   
 Ce projet est une application API construite avec Node.js et Express.
