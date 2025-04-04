@@ -60,19 +60,10 @@ exports.createPostReaction = async (req, res) => {
 
 exports.deletePostReaction = async (req, res) => {
   try {
-    let reaction = await getPostReactionValue(req);
+    if (!req.params.id)
+      return res.status(400).json({ error: "Veuillez spécifier la réaction" });
 
-    if (!reaction) {
-      return res.status(400).json({
-        error: "Vous n'avez pas encore réagi avec cette réaction à ce post",
-      });
-    }
-
-    reaction = await Reaction.deleteOne({
-      postId: req.params.id,
-      userId: req.token._id,
-      type: req.body.type,
-    });
+    reaction = await Reaction.deleteOne({ _id: req.params.id });
 
     return res.status(200).json({ message: "Réaction supprimée" });
   } catch (e) {
