@@ -11,6 +11,10 @@ exports.create = async(req,res) => {
         const token = req.headers?.authorization?.split(" ")[1];
         req.token = jwt.verify(token, process.env.JWT_KEY);
         
+        if(!req.token){
+            return res.status(401).json({ message: "Vous n'etes pas authentifié" })
+        }
+
         let post = await Post.create({
             text: req.body.text,
             file: req.file ? './picture/' + req.file.filename : null,
@@ -59,7 +63,7 @@ exports.delete = async (req, res) => {
     req.token = jwt.verify(token, process.env.JWT_KEY);
     
     if(req.token._id !== post.author){
-        return res.status(404).json({ error: "Vous n'etes pas l'auteur du post"});
+        return res.status(403).json({ error: "Vous n'êtes pas l'auteur du post"});
     }
 
     let result = await Post.deleteOne({
@@ -67,5 +71,5 @@ exports.delete = async (req, res) => {
         author: req.token._id
     });
     
-    return res.status(200).json({ message: "Votre post a été ssupprimé" });
+    return res.status(200).json({ message: "Votre post a été supprimé" });
 }

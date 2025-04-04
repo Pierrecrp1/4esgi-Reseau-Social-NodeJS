@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "cf424f69-7617-4b9e-826b-a2890b40a9a7",
+		"name": "APISocialMedia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30392930"
+	},
+	"item": [
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "getAllPosts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/posts/0/100",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"0",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2VmZTQxZDA3YWNmZDBmNTEwZWYxNmUiLCJlbWFpbCI6ImFydGh1cmJsYW5jaGV0QGdvYXQuZnIiLCJyb2xlcyI6W3siX2lkIjoiNjdlZmUzYWUwZmE2ZTk4YTM2MTJiNDQ0IiwibGFiZWwiOiJNZW1iZXIifV0sImlhdCI6MTc0Mzc3NDgxMiwiZXhwIjoxNzQzODYxMjEyfQ._o8cIuTxMygbC6YFkgOJUFQ3pp-VXpUK-DyMHJHMxoA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "testAuthor",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/aldlf/Downloads/0x1900-000000-80-0-0.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/post",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2VmZTQxZDA3YWNmZDBmNTEwZWYxNmUiLCJlbWFpbCI6ImFydGh1cmJsYW5jaGV0QGdvYXQuZnIiLCJyb2xlcyI6W3siX2lkIjoiNjdlZmUzYWUwZmE2ZTk4YTM2MTJiNDQ0IiwibGFiZWwiOiJNZW1iZXIifV0sImlhdCI6MTc0Mzc3NDgxMiwiZXhwIjoxNzQzODYxMjEyfQ._o8cIuTxMygbC6YFkgOJUFQ3pp-VXpUK-DyMHJHMxoA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "testAuthor",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/aldlf/Downloads/0x1900-000000-80-0-0.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/posts/67efe0eed37ca890261d89eb",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"67efe0eed37ca890261d89eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2VmZTQxZDA3YWNmZDBmNTEwZWYxNmUiLCJlbWFpbCI6ImFydGh1cmJsYW5jaGV0QGdvYXQuZnIiLCJyb2xlcyI6W3siX2lkIjoiNjdlZmUzYWUwZmE2ZTk4YTM2MTJiNDQ0IiwibGFiZWwiOiJNZW1iZXIifV0sImlhdCI6MTc0Mzc3NDgxMiwiZXhwIjoxNzQzODYxMjEyfQ._o8cIuTxMygbC6YFkgOJUFQ3pp-VXpUK-DyMHJHMxoA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "testAuthor",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/aldlf/Downloads/0x1900-000000-80-0-0.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/posts/67efe0eed37ca890261d89eb",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"67efe0eed37ca890261d89eb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"arthurblanchet@goat.fr\",\r\n    \"password\": \"azezaeiazeeaz\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"arthurblanchet@goat.fr\",\r\n    \"password\": \"azezaeiazeeaz\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reaction",
+			"item": [
+				{
+					"name": "postReaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2VmZTQxZDA3YWNmZDBmNTEwZWYxNmUiLCJlbWFpbCI6ImFydGh1cmJsYW5jaGV0QGdvYXQuZnIiLCJyb2xlcyI6W3siX2lkIjoiNjdlZmUzYWUwZmE2ZTk4YTM2MTJiNDQ0IiwibGFiZWwiOiJNZW1iZXIifV0sImlhdCI6MTc0Mzc3NDgxMiwiZXhwIjoxNzQzODYxMjEyfQ._o8cIuTxMygbC6YFkgOJUFQ3pp-VXpUK-DyMHJHMxoA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\":\"haha\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reaction/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reaction",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteReaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2VmZTQxZDA3YWNmZDBmNTEwZWYxNmUiLCJlbWFpbCI6ImFydGh1cmJsYW5jaGV0QGdvYXQuZnIiLCJyb2xlcyI6W3siX2lkIjoiNjdlZmUzYWUwZmE2ZTk4YTM2MTJiNDQ0IiwibGFiZWwiOiJNZW1iZXIifV0sImlhdCI6MTc0Mzc3NDgxMiwiZXhwIjoxNzQzODYxMjEyfQ._o8cIuTxMygbC6YFkgOJUFQ3pp-VXpUK-DyMHJHMxoA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reaction/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reaction",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
