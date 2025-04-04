@@ -16,7 +16,7 @@ database();
 
 const productRoute = require("./routes/product.route");
 const authRoute = require("./routes/auth.route");
-
+const postsRoute = require("./routes/posts.route")
 //common headers
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -29,5 +29,7 @@ app.use((req, res, next) => {
 app.use('/auth', authRoute);
 
 app.use('/product', authMiddleware, productRoute);
+
+app.use('/posts',authMiddleware, postsRoute)
 
 module.exports = app;
