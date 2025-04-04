@@ -7,7 +7,7 @@ const Post = require("./../model/post.model.js");
 require("dotenv").config();
 
 // Function permettant de récupérer la réaction d'un post
-async function getPostReaction(req) {
+async function getPostReactionValue(req) {
   const post = await Post.findOne({ _id: req.params.id });
   if (!post) {
     throw { status: 404, message: "Post non trouvé" };
@@ -24,22 +24,20 @@ async function getPostReaction(req) {
 
 exports.getPostReaction = async (req, res) => {
   try {
-    const reaction = await getPostReaction(req);
-    if (!reaction) {
+    const reactions = await Reaction.find({ postId: req.params.id });
+    if (!reactions) {
       return res.status(404).json({ error: "Réaction non trouvée" });
     }
-    return res.status(200).json(reaction);
+    return res.status(200).json(reactions);
   } catch (e) {
-    const status = e.status || 500;
-    const message = e.message || "Erreur inconnue";
-    return res.status(status).json({ error: message });
+    return res.status(500).json({ error: "Une erreur est survenue" });
   }
 };
 
 // Fonction de création d'un post avec le postId, userId et type de réaction
 exports.createPostReaction = async (req, res) => {
   try {
-    let reaction = await getPostReaction(req);
+    let reaction = await getPostReactionValue(req);
     if (reaction) {
       return res
         .status(400)
@@ -62,7 +60,7 @@ exports.createPostReaction = async (req, res) => {
 
 exports.deletePostReaction = async (req, res) => {
   try {
-    let reaction = getPostReaction(req);
+    let reaction = await getPostReactionValue(req);
 
     if (!reaction) {
       return res.status(400).json({

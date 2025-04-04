@@ -14,10 +14,10 @@ const database = async () => {
 
 database();
 
-const authRoute = require("./routes/auth.route");
-const postsRoute = require("./routes/posts.route")
-const reactionRoute = require("./routes/reaction.route")
-const postRoute = require("./routes/post.route")
+const authRoute = require("./routes/auth.route.js");
+const postsRoute = require("./routes/post.route.js")
+const reactionRoute = require("./routes/reaction.route.js")
+const postRoute = require("./routes/post.route.js")
 //common headers
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
