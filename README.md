@@ -1,7 +1,7 @@
  # Projet Node.js avec Express 
 
  
-Groupe 6 :
+Groupe 6 :   
 Hugo   
 Arthur  
 Pierre 
