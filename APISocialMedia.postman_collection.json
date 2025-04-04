@@ -328,6 +328,35 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2VmZTQxZDA3YWNmZDBmNTEwZWYxNmUiLCJlbWFpbCI6ImFydGh1cmJsYW5jaGV0QGdvYXQuZnIiLCJyb2xlcyI6W3siX2lkIjoiNjdlZmUzYWUwZmE2ZTk4YTM2MTJiNDQ0IiwibGFiZWwiOiJNZW1iZXIifV0sImlhdCI6MTc0Mzc3NDgxMiwiZXhwIjoxNzQzODYxMjEyfQ._o8cIuTxMygbC6YFkgOJUFQ3pp-VXpUK-DyMHJHMxoA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/reaction/67eff4bc3981fdc41567d6ff",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reaction",
+								"67eff4bc3981fdc41567d6ff"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
