@@ -1,4 +1,4 @@
-# Projet Node.js avec Express
+# Projet Node.js avec Express - Groupe 6
 
 Ce projet est une application API construite avec Node.js et Express.
 
