@@ -1,14 +1,14 @@
-const { Schema } = require("mongoose");
+const  { Schema } = require("mongoose");
 const mongoose = require("mongoose");
 
 const ReactionType = ["like", "love", "haha", "bouh", "scary"]
 
 const reaction = new Schema({
-    userId: { type: String, required },
-    postId: { type: String, required },
-    type: { type: String, enum: ReactionType, required }
+    userId: { type: String, required:true },
+    postId: { type: String, required:true },
+    type: { type: String, enum: ReactionType, required:true }
 });
 
-const User = mongoose.model("User", user);
+const Reaction = mongoose.model("Reaction", reaction, "reaction");
 
-module.exports = User;
+module.exports = { Reaction, ReactionType };
