@@ -1,4 +1,11 @@
-# Projet Node.js avec Express - Groupe 6
+# Projet Node.js avec Express 
+
+ 
+Groupe 6 :
+Hugo 
+Arthur
+Pierre
+Thibault
 
 Ce projet est une application API construite avec Node.js et Express.
 
